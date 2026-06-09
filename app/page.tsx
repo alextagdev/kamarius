@@ -62,14 +62,14 @@ export default function KamariusSite() {
       <header className="bg-[#1F2120] text-white">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pt-20 pb-24 lg:pt-28 lg:pb-32">
           <div className="max-w-[920px]">
-            {/* Trust badges - slightly larger */}
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-10">
-              <div className="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur px-5 h-10 rounded-full text-sm font-medium">
-                <Check size={17} className="text-[#C39F61]" />
+            {/* Trust badges - more compact on mobile */}
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-8 md:mb-10">
+              <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
+                <Check size={15} className="text-[#C39F61]" />
                 <span>ISO 9001 • ISO 14001</span>
               </div>
-              <div className="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur px-5 h-10 rounded-full text-sm font-medium">
-                <Check size={17} className="text-[#C39F61]" />
+              <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
+                <Check size={15} className="text-[#C39F61]" />
                 <span>Partener oficial Kaufland România</span>
               </div>
             </div>
