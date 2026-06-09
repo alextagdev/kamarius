@@ -6,6 +6,7 @@ import { toast } from "sonner";
 
 import Navbar from "@/components/Navbar";
 import ProjectModal from "@/components/ProjectModal";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { projects, type Project } from "@/lib/projects";
 
 // Contact config (easy to edit)
@@ -431,16 +432,8 @@ export default function KamariusSite() {
         </div>
       </footer>
 
-      {/* Floating WhatsApp Button */}
-      <a
-        href={`https://wa.me/${WHATSAPP}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="floating-wa fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl"
-        aria-label="Contact WhatsApp"
-      >
-        <span className="text-3xl">💬</span>
-      </a>
+      {/* Floating WhatsApp with animated suggestion bubble */}
+      <FloatingWhatsApp whatsappNumber={WHATSAPP} />
 
       {/* Project Modal */}
       <ProjectModal project={selectedProject} onClose={closeProject} />
