@@ -34,15 +34,21 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-screen-2xl mx-auto">
-        <div className="px-6 lg:px-12 xl:px-16 flex items-center justify-between h-28 md:h-32 lg:h-40">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+        <div className="px-6 lg:px-12 xl:px-16 relative flex items-center justify-between h-20 md:h-24 lg:h-28 overflow-visible">
+          {/* Large Logo - positioned absolutely so the bar stays compact */}
+          <Link 
+            href="/" 
+            className="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20"
+          >
             <img 
               src="/logo.png" 
               alt="SC KAMARIUS SRL" 
-              className="h-20 w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 object-contain" 
+              className="h-[82px] w-[82px] md:h-[105px] md:w-[105px] lg:h-[145px] lg:w-[145px] object-contain" 
             />
           </Link>
+
+          {/* Spacer to push content after the big logo */}
+          <div className="w-[95px] md:w-[120px] lg:w-[170px] flex-shrink-0" />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-x-9 text-base font-medium">
