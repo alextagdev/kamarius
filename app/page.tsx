@@ -113,7 +113,7 @@ export default function KamariusSite() {
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pb-40 md:pb-56 lg:pb-80">
             <div className="max-w-[920px]">
               {/* Trust badges */}
-              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-4 md:mb-8">
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mt-4 md:mt-8 lg:mt-12 mb-4 md:mb-8">
                 <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
                   <Check size={15} className="text-[#C39F61]" />
                   <span>ISO 9001 • ISO 14001</span>
