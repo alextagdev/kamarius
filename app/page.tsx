@@ -109,8 +109,8 @@ export default function KamariusSite() {
         />
 
         {/* Content wrapper with padding to clear the navbar */}
-        <div className="pt-12 md:pt-20 lg:pt-28">
-          <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pb-20 md:pb-24 lg:pb-32">
+        <div className="pt-12 md:pt-20 lg:pt-28 min-h-[60vh] lg:min-h-[85vh]">
+          <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pb-40 md:pb-56 lg:pb-80">
             <div className="max-w-[920px]">
               {/* Trust badges */}
               <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-4 md:mb-8">
