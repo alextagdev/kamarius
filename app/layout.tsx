@@ -38,6 +38,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#F9F7F3] text-[#1F2120]">
+        {/* Font Awesome for WhatsApp icon (used in floating button) */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        />
         {children}
         <Toaster position="top-center" richColors closeButton />
       </body>
