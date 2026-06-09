@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 const PHONE_DISPLAY = "0751 234 567";
 const PHONE_RAW = "+40751234567";
@@ -78,54 +79,87 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - animated hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-11 h-11 flex items-center justify-center text-2xl text-[#2A2D2B]"
-            aria-label="Toggle menu"
+            className="md:hidden w-11 h-11 flex items-center justify-center text-[#2A2D2B]"
+            aria-label={isOpen ? "Închide meniul" : "Deschide meniul"}
           >
-            {isOpen ? <X size={22} /> : <Menu size={22} />}
+            <div className="w-6 h-[19px] flex flex-col justify-between">
+              <motion.span
+                className="block h-[2px] w-full bg-current rounded-full"
+                animate={{
+                  rotate: isOpen ? 45 : 0,
+                  y: isOpen ? 7.5 : 0,
+                }}
+                transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+              />
+              <motion.span
+                className="block h-[2px] w-full bg-current rounded-full"
+                animate={{
+                  opacity: isOpen ? 0 : 1,
+                  x: isOpen ? 6 : 0,
+                }}
+                transition={{ duration: 0.2 }}
+              />
+              <motion.span
+                className="block h-[2px] w-full bg-current rounded-full"
+                animate={{
+                  rotate: isOpen ? -45 : 0,
+                  y: isOpen ? -7.5 : 0,
+                }}
+                transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+              />
+            </div>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden border-t bg-[#F9F7F3]">
-          <div className="px-6 py-6 flex flex-col gap-y-4 text-base font-medium">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="py-1"
-                onClick={closeMenu}
-              >
-                {link.label}
-              </a>
-            ))}
+      {/* Mobile Menu - with nice slide + fade effect */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden border-t bg-[#F9F7F3] overflow-hidden"
+          >
+            <div className="px-6 py-6 flex flex-col gap-y-4 text-base font-medium">
+              {navLinks.map((link, index) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="py-1 active:text-[#C39F61] transition-colors"
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </a>
+              ))}
 
-            <div className="pt-4 border-t flex flex-col gap-y-3">
-              <a
-                href={`tel:${PHONE_RAW}`}
-                className="flex w-full items-center justify-center gap-x-3 py-4 border border-[#2A2D2B] rounded-2xl font-semibold text-base"
-                onClick={closeMenu}
-              >
-                <Phone size={19} />
-                <span>{PHONE_DISPLAY}</span>
-              </a>
-              <a
-                href={`https://wa.me/${WHATSAPP}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-x-3 py-4 bg-[#C39F61] text-white rounded-2xl font-semibold text-base"
-                onClick={closeMenu}
-              >
-                Scrie-ne pe WhatsApp
-              </a>
+              <div className="pt-4 border-t flex flex-col gap-y-3">
+                <a
+                  href={`tel:${PHONE_RAW}`}
+                  className="flex w-full items-center justify-center gap-x-3 py-4 border border-[#2A2D2B] rounded-2xl font-semibold text-base active:bg-white/5 transition-colors"
+                  onClick={closeMenu}
+                >
+                  <Phone size={19} />
+                  <span>{PHONE_DISPLAY}</span>
+                </a>
+                <a
+                  href={`https://wa.me/${WHATSAPP}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-x-3 py-4 bg-[#C39F61] text-white rounded-2xl font-semibold text-base active:bg-[#A67C52] transition-colors"
+                  onClick={closeMenu}
+                >
+                  Scrie-ne pe WhatsApp
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
