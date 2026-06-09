@@ -60,10 +60,10 @@ export default function KamariusSite() {
 
       {/* HERO - Larger & Cleaner */}
       <header className="bg-[#1F2120] text-white">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pt-20 pb-24 lg:pt-28 lg:pb-32">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pt-12 md:pt-16 lg:pt-28 pb-20 md:pb-24 lg:pb-32">
           <div className="max-w-[920px]">
-            {/* Trust badges - more compact on mobile */}
-            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 mb-8 md:mb-10">
+            {/* Trust badges - even less top space on mobile */}
+            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-4 md:mb-8">
               <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
                 <Check size={15} className="text-[#C39F61]" />
                 <span>ISO 9001 • ISO 14001</span>
