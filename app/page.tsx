@@ -96,14 +96,14 @@ export default function KamariusSite() {
           style={{
             backgroundImage: `
               linear-gradient(
-                to right, 
+                to bottom right, 
                 #fff 0%, 
-                #fff 12%, 
-                rgba(255,255,255,0.8) 18%, 
-                transparent 26%
+                #fff 10%, 
+                rgba(255,255,255,0.75) 16%, 
+                transparent 24%
               ),
               linear-gradient(rgba(31, 33, 32, 0.15), rgba(31, 33, 32, 0.45)),
-              url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=2000&q=80')
+              url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2000&q=80')
             `
           }}
         />
