@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Phone, Award, Users, MapPin, Check, Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { toast } from "sonner";
 
 import Navbar from "@/components/Navbar";
@@ -52,6 +52,10 @@ export default function KamariusSite() {
   const maxSlide = Math.max(0, testimonials.length - reviewsPerView);
   const visibleReviews = testimonials.slice(currentSlide, currentSlide + reviewsPerView);
 
+  // Parallax slow scroll effect for hero background
+  const { scrollYProgress } = useScroll();
+  const heroBgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]); // slow movement for "scroll lent" effect
+
   // Contact form handler
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -90,9 +94,21 @@ export default function KamariusSite() {
 
       {/* HERO - construction image from the very top, under transparent navbar */}
       <header className="relative text-white -mt-20 md:-mt-24 lg:-mt-28">
-        {/* Full construction background image covering from the absolute top */}
-        <div 
+        {/* Construction image layer with slow scroll (parallax) effect */}
+        <motion.div 
           className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(31, 33, 32, 0.15), rgba(31, 33, 32, 0.45)),
+              url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2000&q=80')
+            `,
+            y: heroBgY
+          }}
+        />
+
+        {/* White "lens" only in top-left corner for the logo area (not the whole left side) */}
+        <div 
+          className="absolute inset-0 -z-10"
           style={{
             backgroundImage: `
               linear-gradient(
@@ -101,9 +117,7 @@ export default function KamariusSite() {
                 #fff 10%, 
                 rgba(255,255,255,0.75) 16%, 
                 transparent 24%
-              ),
-              linear-gradient(rgba(31, 33, 32, 0.15), rgba(31, 33, 32, 0.45)),
-              url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2000&q=80')
+              )
             `
           }}
         />
