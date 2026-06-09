@@ -22,6 +22,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "#servicii", label: "Servicii" },
     { href: "#portofoliu", label: "Portofoliu" },
+    { href: "#testimoniale", label: "Testimoniale" },
     { href: "#despre", label: "Despre noi" },
     { href: "#contact", label: "Contact" },
   ];

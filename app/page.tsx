@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Phone, Award, Users, MapPin, Check } from "lucide-react";
+import { Phone, Award, Users, MapPin, Check, Star } from "lucide-react";
 import { toast } from "sonner";
 
 import Navbar from "@/components/Navbar";
@@ -22,6 +22,29 @@ export default function KamariusSite() {
 
   const openProject = (project: Project) => setSelectedProject(project);
   const closeProject = () => setSelectedProject(null);
+
+  const testimonials = [
+    {
+      name: "Maria C.",
+      project: "Kaufland România – mentenanță 42 magazine",
+      quote: "Echipa KAMARIUS a realizat mentenanța la magazinele noastre din Craiova. Lucrări curate, rapide și de calitate superioară. Recomand cu încredere!",
+    },
+    {
+      name: "Cristian M.",
+      project: "Clinica Irina Craiova – camera de radiologie",
+      quote: "Au amenajat camera de radiologie perfect, respectând toate normele medicale. Finisaje impecabile și comunicare excelentă pe tot parcursul proiectului.",
+    },
+    {
+      name: "Elena D.",
+      project: "De'Longhi România – compartimentări și finisaje",
+      quote: "Compartimentări din gips-carton și finisaje de înaltă calitate pentru spațiul nostru industrial. Profesioniști adevărați, la timp și la preț corect.",
+    },
+    {
+      name: "Andrei B.",
+      project: "Casa Marius – Filiași",
+      quote: "Au executat amenajarea completă a casei noastre din Filiași, inclusiv foișorul. Atenție la detalii și seriozitate deplină. Mulțumim!",
+    },
+  ];
 
   // Contact form handler
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -219,6 +242,33 @@ export default function KamariusSite() {
                 <div className="p-7">
                   <div className="font-semibold text-lg leading-tight mb-1">{project.title}</div>
                   <div className="text-sm text-[#C39F61]">{project.subtitle}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TESTIMONIALE / RECENZII */}
+      <section id="testimoniale" className="bg-white py-20">
+        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl lg:text-5xl font-semibold tracking-tighter">Ce spun clienții noștri</h2>
+            <p className="text-[#5C605E] mt-2">Ce spun clienții despre KAMARIUS</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t, index) => (
+              <div key={index} className="bg-white border border-[#EDE9E1] rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-[#C39F61]" fill="#C39F61" />
+                  ))}
+                </div>
+                <p className="text-[#3A3D3B] text-[15px] leading-relaxed mb-5">"{t.quote}"</p>
+                <div>
+                  <div className="font-semibold">{t.name}</div>
+                  <div className="text-xs text-[#5C605E] mt-0.5">{t.project}</div>
                 </div>
               </div>
             ))}
