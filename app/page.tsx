@@ -85,18 +85,18 @@ export default function KamariusSite() {
               pentru proiecte rezidențiale, comerciale și industriale în Oltenia și la nivel național.
             </p>
 
-            {/* Bigger, cleaner hero buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-4">
+            {/* Bigger, cleaner hero buttons - optimized for mobile */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3.5 w-full sm:w-auto">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-x-3 bg-white text-[#1F2120] font-semibold px-10 h-16 text-base rounded-2xl hover:bg-[#C39F61] hover:text-white active:scale-[0.985] transition-all shadow-sm"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 bg-white text-[#1F2120] font-semibold px-8 sm:px-10 h-16 text-[15px] sm:text-base rounded-2xl hover:bg-[#C39F61] hover:text-white active:scale-[0.985] transition-all shadow-sm"
               >
                 Solicită ofertă
               </a>
 
               <a
                 href={`tel:${PHONE_RAW}`}
-                className="inline-flex items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-9 h-16 text-base rounded-2xl transition-all"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-8 sm:px-9 h-16 text-[15px] sm:text-base rounded-2xl transition-all"
               >
                 <Phone size={19} />
                 <span>{PHONE_DISPLAY}</span>
@@ -106,7 +106,7 @@ export default function KamariusSite() {
                 href={`https://wa.me/${WHATSAPP}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-9 h-16 text-base rounded-2xl transition-all"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-8 sm:px-9 h-16 text-[15px] sm:text-base rounded-2xl transition-all"
               >
                 WhatsApp
               </a>
@@ -403,7 +403,7 @@ export default function KamariusSite() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-2 w-full h-14 bg-[#1F2120] hover:bg-black disabled:opacity-70 text-white font-semibold rounded-2xl transition-all flex items-center justify-center gap-x-2"
+                className="mt-2 w-full h-16 bg-[#1F2120] hover:bg-black disabled:opacity-70 text-white font-semibold rounded-2xl transition-all flex items-center justify-center gap-x-2 text-[15px]"
               >
                 {isSubmitting ? "Se trimite..." : "Trimite cererea de ofertă"}
               </button>

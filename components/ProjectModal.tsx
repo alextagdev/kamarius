@@ -70,19 +70,19 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
                 href={`tel:${PHONE}`}
-                className="inline-flex items-center gap-x-2 px-6 h-12 rounded-2xl border border-[#1F2120] hover:bg-[#1F2120] hover:text-white text-sm font-semibold transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-2 px-6 h-14 rounded-2xl border border-[#1F2120] hover:bg-[#1F2120] hover:text-white text-sm font-semibold transition-colors"
               >
-                <Phone size={16} />
+                <Phone size={17} />
                 <span>Sună pentru detalii</span>
               </a>
               <a
                 href={`https://wa.me/${WHATSAPP}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-x-2 px-6 h-12 bg-[#C39F61] hover:bg-[#A67C52] rounded-2xl text-white text-sm font-semibold transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-2 px-6 h-14 bg-[#C39F61] hover:bg-[#A67C52] rounded-2xl text-white text-sm font-semibold transition-colors"
               >
                 <span>Întreabă pe WhatsApp</span>
               </a>
