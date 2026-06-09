@@ -42,14 +42,14 @@ export default function Navbar() {
             className="absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-20"
           >
             <img 
-              src="/logo.png" 
+              src="/logo-new.png" 
               alt="SC KAMARIUS SRL" 
-              className="h-[82px] w-[82px] md:h-[105px] md:w-[105px] lg:h-[145px] lg:w-[145px] object-contain" 
+              className="h-24 w-24 md:h-[120px] md:w-[120px] lg:h-[160px] lg:w-[160px] object-contain" 
             />
           </Link>
 
           {/* Spacer to push content after the big logo */}
-          <div className="w-[95px] md:w-[120px] lg:w-[170px] flex-shrink-0" />
+          <div className="w-[110px] md:w-[140px] lg:w-[185px] flex-shrink-0" />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-x-9 text-base font-medium">
