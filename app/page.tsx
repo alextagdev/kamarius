@@ -88,67 +88,83 @@ export default function KamariusSite() {
     <div className="min-h-screen">
       <Navbar />
 
-      {/* HERO - Larger & Cleaner */}
-      <header className="bg-[#1F2120] text-white">
-        <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pt-12 md:pt-16 lg:pt-28 pb-20 md:pb-24 lg:pb-32">
-          <div className="max-w-[920px]">
-            {/* Trust badges - even less top space on mobile */}
-            <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-4 md:mb-8">
-              <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
-                <Check size={15} className="text-[#C39F61]" />
-                <span>ISO 9001 • ISO 14001</span>
+      {/* HERO - construction image from the very top, under transparent navbar */}
+      <header className="relative text-white -mt-20 md:-mt-24 lg:-mt-28">
+        {/* Full construction background image covering from the absolute top */}
+        <div 
+          className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{
+            backgroundImage: `
+              linear-gradient(
+                to right, 
+                #fff 0%, 
+                #fff 12%, 
+                rgba(255,255,255,0.8) 18%, 
+                transparent 26%
+              ),
+              linear-gradient(rgba(31, 33, 32, 0.15), rgba(31, 33, 32, 0.45)),
+              url('https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=2000&q=80')
+            `
+          }}
+        />
+
+        {/* Content wrapper with padding to clear the navbar */}
+        <div className="pt-12 md:pt-20 lg:pt-28">
+          <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pb-20 md:pb-24 lg:pb-32">
+            <div className="max-w-[920px]">
+              {/* Trust badges */}
+              <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-4 md:mb-8">
+                <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
+                  <Check size={15} className="text-[#C39F61]" />
+                  <span>ISO 9001 • ISO 14001</span>
+                </div>
+                <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
+                  <Check size={15} className="text-[#C39F61]" />
+                  <span>Partener oficial Kaufland România</span>
+                </div>
               </div>
-              <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
-                <Check size={15} className="text-[#C39F61]" />
-                <span>Partener oficial Kaufland România</span>
+
+              <h1 className="text-[52px] leading-[0.96] lg:text-[68px] xl:text-[78px] font-semibold tracking-[-2.2px] mb-7">
+                Construcții civile,<br />
+                industriale și agricole<br />
+                <span className="gold">cu calitate și seriozitate.</span>
+              </h1>
+
+              {/* Hero buttons */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3.5 w-full sm:w-auto mt-8">
+                <a
+                  href="#contact"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 bg-white text-[#1F2120] font-semibold px-8 sm:px-10 h-16 text-[15px] sm:text-base rounded-2xl hover:bg-[#C39F61] hover:text-white active:scale-[0.985] transition-all shadow-sm"
+                >
+                  Solicită ofertă
+                </a>
+
+                <a
+                  href={`tel:${PHONE_RAW}`}
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-8 sm:px-9 h-16 text-[15px] sm:text-base rounded-2xl transition-all"
+                >
+                  <Phone size={19} />
+                  <span>{PHONE_DISPLAY}</span>
+                </a>
+
+                <a
+                  href={`https://wa.me/${WHATSAPP}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-8 sm:px-9 h-16 text-[15px] sm:text-base rounded-2xl transition-all"
+                >
+                  WhatsApp
+                </a>
               </div>
-            </div>
 
-            <h1 className="text-[52px] leading-[0.96] lg:text-[68px] xl:text-[78px] font-semibold tracking-[-2.2px] mb-7">
-              Construcții civile,<br />
-              industriale și agricole<br />
-              <span className="gold">cu calitate și seriozitate.</span>
-            </h1>
-
-            <p className="max-w-[560px] text-[17px] lg:text-[18px] text-white/80 mb-11 leading-relaxed">
-              SC KAMARIUS SRL oferă servicii complete de execuție, finisaje și mentenanță
-              pentru proiecte rezidențiale, comerciale și industriale în Oltenia și la nivel național.
-            </p>
-
-            {/* Bigger, cleaner hero buttons - optimized for mobile */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-3.5 w-full sm:w-auto">
-              <a
-                href="#contact"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 bg-white text-[#1F2120] font-semibold px-8 sm:px-10 h-16 text-[15px] sm:text-base rounded-2xl hover:bg-[#C39F61] hover:text-white active:scale-[0.985] transition-all shadow-sm"
-              >
-                Solicită ofertă
-              </a>
-
-              <a
-                href={`tel:${PHONE_RAW}`}
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-8 sm:px-9 h-16 text-[15px] sm:text-base rounded-2xl transition-all"
-              >
-                <Phone size={19} />
-                <span>{PHONE_DISPLAY}</span>
-              </a>
-
-              <a
-                href={`https://wa.me/${WHATSAPP}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-full sm:w-auto items-center justify-center gap-x-3 border-2 border-white/75 hover:bg-white/10 font-semibold px-8 sm:px-9 h-16 text-[15px] sm:text-base rounded-2xl transition-all"
-              >
-                WhatsApp
-              </a>
-            </div>
-
-            <div className="mt-12 flex items-center gap-x-8 text-sm text-white/60">
-              <div className="flex items-center -space-x-2">
-                <div className="w-6 h-6 rounded-full bg-[#C39F61]/70 ring-2 ring-[#1F2120]" />
-                <div className="w-6 h-6 rounded-full bg-white/40 ring-2 ring-[#1F2120]" />
-                <div className="w-6 h-6 rounded-full bg-[#C39F61]/40 ring-2 ring-[#1F2120]" />
+              <div className="mt-12 flex items-center gap-x-8 text-sm text-white/60">
+                <div className="flex items-center -space-x-2">
+                  <div className="w-6 h-6 rounded-full bg-[#C39F61]/70 ring-2 ring-[#1F2120]" />
+                  <div className="w-6 h-6 rounded-full bg-white/40 ring-2 ring-[#1F2120]" />
+                  <div className="w-6 h-6 rounded-full bg-[#C39F61]/40 ring-2 ring-[#1F2120]" />
+                </div>
+                <div>42 magazine Kaufland • Clinica Irina • De&apos;Longhi • Salina Turda • QCLUB</div>
               </div>
-              <div>42 magazine Kaufland • Clinica Irina • De&apos;Longhi • Salina Turda • QCLUB</div>
             </div>
           </div>
         </div>
