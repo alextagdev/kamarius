@@ -15,6 +15,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll(); // set initial state immediately
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -31,8 +32,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`bg-[#F9F7F3] border-b border-[#EDE9E1] sticky top-0 z-50 transition-all ${
-        scrolled ? "nav-scrolled" : ""
+      className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+        scrolled 
+          ? 'bg-[#F9F7F3]/95 backdrop-blur-md border-[#EDE9E1] shadow-sm' 
+          : '!bg-transparent !border-transparent'
       }`}
     >
       <div className="max-w-screen-2xl mx-auto">
@@ -55,7 +58,11 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-x-9 text-base font-medium">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="nav-link text-[#2A2D2B]">
+              <a 
+                key={link.href} 
+                href={link.href} 
+                className={`nav-link transition-colors ${scrolled ? 'text-[#2A2D2B] hover:text-[#1F2120]' : 'text-white/90 hover:text-white'}`}
+              >
                 {link.label}
               </a>
             ))}
@@ -65,7 +72,11 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-x-3">
             <a
               href={`tel:${PHONE_RAW}`}
-              className="inline-flex items-center gap-x-2.5 px-7 py-3 text-[15px] font-semibold border border-[#2A2D2B] hover:bg-[#1F2120] hover:text-white rounded-2xl transition-colors"
+              className={`inline-flex items-center gap-x-2.5 px-7 py-3 text-[15px] font-semibold rounded-2xl transition-all border ${
+                scrolled 
+                  ? 'border-[#2A2D2B] hover:bg-[#1F2120] hover:text-white text-[#1F2120]' 
+                  : 'border-white/60 hover:bg-white/10 text-white'
+              }`}
             >
               <Phone size={17} />
               <span>{PHONE_DISPLAY}</span>
@@ -74,7 +85,11 @@ export default function Navbar() {
               href={`https://wa.me/${WHATSAPP}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-x-2.5 px-7 py-3 bg-[#C39F61] hover:bg-[#A67C52] text-white text-[15px] font-semibold rounded-2xl transition-colors"
+              className={`inline-flex items-center gap-x-2.5 px-7 py-3 text-[15px] font-semibold rounded-2xl transition-all ${
+                scrolled 
+                  ? 'bg-[#C39F61] hover:bg-[#A67C52] text-white' 
+                  : 'bg-white/10 hover:bg-white/20 text-white border border-white/30'
+              }`}
             >
               WhatsApp
             </a>
@@ -83,7 +98,7 @@ export default function Navbar() {
           {/* Mobile Menu Button - animated hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden w-11 h-11 flex items-center justify-center text-[#2A2D2B]"
+            className={`md:hidden w-11 h-11 flex items-center justify-center ${scrolled ? 'text-[#2A2D2B]' : 'text-white'}`}
             aria-label={isOpen ? "Închide meniul" : "Deschide meniul"}
           >
             <div className="w-6 h-[19px] flex flex-col justify-between">
