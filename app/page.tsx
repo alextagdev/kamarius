@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Phone, Award, Users, MapPin, Check, Star } from "lucide-react";
+import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 import Navbar from "@/components/Navbar";
@@ -19,6 +20,7 @@ const ADDRESS = "Craiova, județul Dolj, România";
 export default function KamariusSite() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const openProject = (project: Project) => setSelectedProject(project);
   const closeProject = () => setSelectedProject(null);
@@ -45,6 +47,10 @@ export default function KamariusSite() {
       quote: "Au executat amenajarea completă a casei noastre din Filiași, inclusiv foișorul. Atenție la detalii și seriozitate deplină. Mulțumim!",
     },
   ];
+
+  const reviewsPerView = 3;
+  const maxSlide = Math.max(0, testimonials.length - reviewsPerView);
+  const visibleReviews = testimonials.slice(currentSlide, currentSlide + reviewsPerView);
 
   // Contact form handler
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -249,16 +255,22 @@ export default function KamariusSite() {
         </div>
       </section>
 
-      {/* TESTIMONIALE / RECENZII */}
-      <section id="testimoniale" className="bg-white py-20">
+      {/* RECENZII */}
+      <section id="recenzii" className="bg-white py-20">
         <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-semibold tracking-tighter">Ce spun clienții noștri</h2>
-            <p className="text-[#5C605E] mt-2">Ce spun clienții despre KAMARIUS</p>
+            <p className="text-[#5C605E] mt-2">Recenzii de la clienții KAMARIUS</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, index) => (
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
+            {visibleReviews.map((t, index) => (
               <div key={index} className="bg-white border border-[#EDE9E1] rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -272,7 +284,25 @@ export default function KamariusSite() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
+
+          {/* Buline / Dots pentru navigare */}
+          {maxSlide > 0 && (
+            <div className="flex justify-center gap-2 mt-8">
+              {Array.from({ length: maxSlide + 1 }).map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${
+                    currentSlide === index 
+                      ? 'bg-[#C39F61] scale-125' 
+                      : 'bg-[#EDE9E1] hover:bg-[#C39F61]/50'
+                  }`}
+                  aria-label={`Vezi recenzia ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
