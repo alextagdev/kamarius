@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Phone, Award, Users, MapPin, Check, Star } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { toast } from "sonner";
@@ -52,9 +52,13 @@ export default function KamariusSite() {
   const maxSlide = Math.max(0, testimonials.length - reviewsPerView);
   const visibleReviews = testimonials.slice(currentSlide, currentSlide + reviewsPerView);
 
-  // Parallax slow scroll effect for hero background
-  const { scrollYProgress } = useScroll();
-  const heroBgY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]); // slow movement for "scroll lent" effect
+  // Parallax slow scroll effect for hero background (scoped to hero section)
+  const headerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: headerRef,
+    offset: ["start end", "end start"]
+  });
+  const heroBgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]); // increased for more noticeable slow scroll effect
 
   // Contact form handler
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -93,7 +97,7 @@ export default function KamariusSite() {
       <Navbar />
 
       {/* HERO - construction image from the very top, under transparent navbar */}
-      <header className="relative text-white -mt-20 md:-mt-24 lg:-mt-28">
+      <header ref={headerRef} className="relative text-white -mt-20 md:-mt-24 lg:-mt-28">
         {/* Construction image layer with slow scroll (parallax) effect */}
         <motion.div 
           className="absolute inset-0 -z-10 bg-cover bg-center"
