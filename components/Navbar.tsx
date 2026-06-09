@@ -32,10 +32,8 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 border-b ${
-        scrolled 
-          ? 'bg-[#F9F7F3]/95 backdrop-blur-md border-[#EDE9E1] shadow-sm' 
-          : '!bg-transparent !border-transparent'
+      className={`sticky top-0 z-50 transition-all duration-300 border-b bg-transparent ${
+        scrolled ? 'scrolled' : ''
       }`}
     >
       <div className="max-w-screen-2xl mx-auto">
