@@ -34,13 +34,13 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-screen-2xl mx-auto">
-        <div className="px-6 lg:px-12 xl:px-16 flex items-center justify-between h-24 md:h-28 lg:h-36">
+        <div className="px-6 lg:px-12 xl:px-16 flex items-center justify-between h-28 md:h-32 lg:h-40">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img 
               src="/logo.png" 
               alt="SC KAMARIUS SRL" 
-              className="h-[68px] w-[68px] md:h-20 md:w-20 lg:h-[104px] lg:w-[104px] object-contain" 
+              className="h-20 w-20 md:h-24 md:w-24 lg:h-32 lg:w-32 object-contain" 
             />
           </Link>
 
