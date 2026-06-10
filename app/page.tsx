@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Phone, Award, Users, MapPin, Check, Star } from "lucide-react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 import Navbar from "@/components/Navbar";
@@ -52,14 +52,6 @@ export default function KamariusSite() {
   const maxSlide = Math.max(0, testimonials.length - reviewsPerView);
   const visibleReviews = testimonials.slice(currentSlide, currentSlide + reviewsPerView);
 
-  // Parallax slow scroll effect for hero background (scoped to hero section)
-  const headerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: headerRef,
-    offset: ["start end", "end start"]
-  });
-  const heroBgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]); // increased for more noticeable slow scroll effect
-
   // Contact form handler
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -97,37 +89,38 @@ export default function KamariusSite() {
       <Navbar />
 
       {/* HERO - construction image from the very top, under transparent navbar */}
-      <header ref={headerRef} className="relative text-white -mt-20 md:-mt-24 lg:-mt-28">
-        {/* Construction image layer with slow scroll (parallax) effect */}
-        <motion.div 
-          className="absolute inset-0 -z-10 bg-cover bg-center"
+      <header className="relative text-white overflow-hidden">
+        {/* Background image - no negative z-index, DOM order handles layering */}
+        <div
+          className="absolute inset-x-0 bottom-0 bg-cover bg-center"
           style={{
+            top: '-200px',
+            marginTop: '-200px',
             backgroundImage: `
               linear-gradient(rgba(31, 33, 32, 0.15), rgba(31, 33, 32, 0.45)),
-              url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=2000&q=80&v=10')
+              url('https://images.unsplash.com/photo-1590579491624-f98f36d4c763?w=2000&q=80')
             `,
-            y: heroBgY
           }}
         />
 
-        {/* White "lens" only in top-left corner for the logo area (not the whole left side) */}
-        <div 
-          className="absolute inset-0 -z-10"
+        {/* White lens top-left for logo area */}
+        <div
+          className="absolute inset-0"
           style={{
             backgroundImage: `
               linear-gradient(
-                to bottom right, 
-                #fff 0%, 
-                #fff 8%, 
-                rgba(255,255,255,0.7) 14%, 
+                to bottom right,
+                #fff 0%,
+                #fff 8%,
+                rgba(255,255,255,0.7) 14%,
                 transparent 20%
               )
             `
           }}
         />
 
-        {/* Content wrapper with padding to clear the navbar */}
-        <div className="pt-12 md:pt-20 lg:pt-28 min-h-[60vh] lg:min-h-[85vh]">
+        {/* Content wrapper - relative so it appears above the absolute bg layers */}
+        <div className="relative pt-20 md:pt-24 lg:pt-28 min-h-[60vh] lg:min-h-[85vh]">
           <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 xl:px-16 pb-40 md:pb-56 lg:pb-80">
             <div className="max-w-[920px]">
               {/* Trust badges */}
@@ -311,7 +304,7 @@ export default function KamariusSite() {
                     <Star key={i} className="w-4 h-4 text-[#C39F61]" fill="#C39F61" />
                   ))}
                 </div>
-                <p className="text-[#3A3D3B] text-[15px] leading-relaxed mb-5">"{t.quote}"</p>
+                <p className="text-[#3A3D3B] text-[15px] leading-relaxed mb-5">&ldquo;{t.quote}&rdquo;</p>
                 <div>
                   <div className="font-semibold">{t.name}</div>
                   <div className="text-xs text-[#5C605E] mt-0.5">{t.project}</div>

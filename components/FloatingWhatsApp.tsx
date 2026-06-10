@@ -7,12 +7,12 @@ interface FloatingWhatsAppProps {
   whatsappNumber: string;
 }
 
-export default function FloatingWhatsApp({ whatsappNumber }: FloatingWhatsAppProps) {
-  const messages = [
-    "Ai nevoie de ajutor ?",
-    "Ai o întrebare ?..",
-  ];
+const MESSAGES = [
+  "Ai nevoie de ajutor ?",
+  "Ai o întrebare ?..",
+];
 
+export default function FloatingWhatsApp({ whatsappNumber }: FloatingWhatsAppProps) {
   const [showBubble, setShowBubble] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [typedText, setTypedText] = useState("");
@@ -29,8 +29,11 @@ export default function FloatingWhatsApp({ whatsappNumber }: FloatingWhatsAppPro
   useEffect(() => {
     if (!showBubble) return;
 
-    const message = messages[currentIndex];
-    setTypedText("");
+    const message = MESSAGES[currentIndex];
+    const clearTimer = setTimeout(() => {
+      setTypedText("");
+    }, 0);
+    
     let i = 0;
 
     const typingInterval = setInterval(() => {
@@ -41,12 +44,15 @@ export default function FloatingWhatsApp({ whatsappNumber }: FloatingWhatsAppPro
         clearInterval(typingInterval);
         // Show full message for a while, then switch
         setTimeout(() => {
-          setCurrentIndex((prev) => (prev + 1) % messages.length);
+          setCurrentIndex((prev) => (prev + 1) % MESSAGES.length);
         }, 3800);
       }
     }, 52); // typing speed
 
-    return () => clearInterval(typingInterval);
+    return () => {
+      clearTimeout(clearTimer);
+      clearInterval(typingInterval);
+    };
   }, [currentIndex, showBubble]);
 
   const openWhatsApp = () => {
@@ -73,7 +79,7 @@ export default function FloatingWhatsApp({ whatsappNumber }: FloatingWhatsAppPro
               <div className="relative z-10 pr-1 leading-snug">
                 {typedText}
                 {/* Blinking cursor while typing */}
-                {typedText.length < messages[currentIndex].length && (
+                {typedText.length < MESSAGES[currentIndex].length && (
                   <span className="ml-0.5 inline-block h-3.5 w-[2px] bg-[#C39F61] align-middle animate-pulse" />
                 )}
               </div>

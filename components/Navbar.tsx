@@ -28,12 +28,17 @@ export default function Navbar() {
   ];
 
   const closeMenu = () => setIsOpen(false);
+  const showBackground = scrolled || isOpen;
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-300 border-b bg-transparent ${
-        scrolled ? 'scrolled' : ''
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
+        scrolled ? "backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.04)]" : ""
       }`}
+      style={{
+        backgroundColor: scrolled ? "rgba(249, 247, 243, 0.8)" : "transparent",
+        borderColor: scrolled ? "#EDE9E1" : "transparent",
+      }}
     >
       <div className="max-w-screen-2xl mx-auto">
         <div className="px-6 lg:px-12 xl:px-16 relative flex items-center justify-between h-20 md:h-24 lg:h-28 overflow-visible">
@@ -136,24 +141,24 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden border-t bg-[#F9F7F3] overflow-hidden"
+            className="md:hidden border-t border-[#EDE9E1] bg-[#F9F7F3] overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-y-4 text-base font-medium">
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="py-1 active:text-[#C39F61] transition-colors"
+                  className="py-1 text-[#2A2D2B] hover:text-[#C39F61] transition-colors active:text-[#C39F61]"
                   onClick={closeMenu}
                 >
                   {link.label}
                 </a>
               ))}
 
-              <div className="pt-4 border-t flex flex-col gap-y-3">
+              <div className="pt-4 border-t border-[#EDE9E1] flex flex-col gap-y-3">
                 <a
                   href={`tel:${PHONE_RAW}`}
-                  className="flex w-full items-center justify-center gap-x-3 py-4 border border-[#2A2D2B] rounded-2xl font-semibold text-base active:bg-white/5 transition-colors"
+                  className="flex w-full items-center justify-center gap-x-3 py-4 rounded-2xl font-semibold text-base border border-[#2A2D2B] text-[#2A2D2B] transition-colors active:bg-[#EDE9E1]"
                   onClick={closeMenu}
                 >
                   <Phone size={19} />
