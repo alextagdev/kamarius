@@ -27,11 +27,6 @@ export default function KamariusSite() {
 
   const testimonials = [
     {
-      name: "Maria C.",
-      project: "Kaufland România – mentenanță 42 magazine",
-      quote: "Echipa KAMARIUS a realizat mentenanța la magazinele noastre din Craiova. Lucrări curate, rapide și de calitate superioară. Recomand cu încredere!",
-    },
-    {
       name: "Cristian M.",
       project: "Clinica Irina Craiova – camera de radiologie",
       quote: "Au amenajat camera de radiologie perfect, respectând toate normele medicale. Finisaje impecabile și comunicare excelentă pe tot parcursul proiectului.",
@@ -128,10 +123,6 @@ export default function KamariusSite() {
                 <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
                   <Check size={15} className="text-[#C39F61]" />
                   <span>ISO 9001 • ISO 14001</span>
-                </div>
-                <div className="inline-flex items-center gap-x-1.5 bg-white/10 backdrop-blur px-4 md:px-5 h-8 md:h-10 rounded-full text-xs md:text-sm font-medium">
-                  <Check size={15} className="text-[#C39F61]" />
-                  <span>Partener oficial Kaufland România</span>
                 </div>
               </div>
 
