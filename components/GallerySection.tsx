@@ -6,33 +6,27 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 const PROJECTS = [
   {
-    id: "bazin",
-    name: "Bazin Olimpic",
-    images: [
-      "/poza/bazin olimpic/2323.jpeg",
-      "/poza/bazin olimpic/3434324.jpeg",
-      "/poza/bazin olimpic/423432423.jpeg",
-      "/poza/bazin olimpic/WhatsApp Image 2026-06-10 at 11.08.35.jpeg",
-      "/poza/bazin olimpic/WhatsApp Image. 2 2026-06-10 at 11.08.35.jpeg",
-    ],
-  },
-  {
     id: "casa",
     name: "Casa Craiova",
     images: [
-      "/poza/casa craiova/12123.jpeg",
-      "/poza/casa craiova/21321321321.jpeg",
-      "/poza/casa craiova/23123.jpeg",
-      "/poza/casa craiova/23213123.jpeg",
-      "/poza/casa craiova/241123.jpeg",
-      "/poza/casa craiova/WhatsApp Image 2026-06-10 at 11.08.33.jpeg",
-      "/poza/casa craiova/WhatsApp Image 2026-06-10 at 11.08.34.jpeg",
+      "/poza/casa craiova/2323.jpeg",
+      "/poza/casa craiova/3434324.jpeg",
+      "/poza/casa craiova/423432423.jpeg",
+      "/poza/casa craiova/WhatsApp Image 2026-06-10 at 11.08.35.jpeg",
+      "/poza/casa craiova/WhatsApp Image. 2 2026-06-10 at 11.08.35.jpeg",
     ],
   },
   {
     id: "kaufland",
     name: "Kaufland",
     images: [
+      "/poza/kaufland/12123.jpeg",
+      "/poza/kaufland/21321321321.jpeg",
+      "/poza/kaufland/23123.jpeg",
+      "/poza/kaufland/23213123.jpeg",
+      "/poza/kaufland/241123.jpeg",
+      "/poza/kaufland/WhatsApp Image 2026-06-10 at 11.08.33.jpeg",
+      "/poza/kaufland/WhatsApp Image 2026-06-10 at 11.08.34.jpeg",
       "/poza/kaufland/dasdadas.jpeg",
       "/poza/kaufland/dsadsadas.jpeg",
       "/poza/kaufland/dsdae23.jpeg",
