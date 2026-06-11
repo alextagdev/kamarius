@@ -13,7 +13,7 @@ export const projects: Project[] = [
     id: 0,
     title: "Mentenanță finisaje interioare – Kaufland România",
     subtitle: "42 magazine • Mentenanță continuă",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56b08?w=1200&q=80",
+    image: "/poza/kaufland/12123.jpeg",
     badge: "Mentenanță",
     description: "Lucrări periodice de mentenanță și reparații pentru finisajele interioare în 42 de magazine Kaufland din întreaga țară. Echipa noastră asigură intervenții rapide și de calitate, menținând standardele înalte impuse de lanțul de retail.",
     tags: ["Mentenanță", "Retail", "Finisaje", "Național"]
@@ -22,7 +22,7 @@ export const projects: Project[] = [
     id: 1,
     title: "Bloc S+P+10E Craiova",
     subtitle: "Finisaje interioare • Zidărie • Șape • Compartimentări",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80",
+    image: "/poza/bazin olimpic/bazin1.jpeg",
     badge: "În execuție",
     description: "Proiect amplu de finisaje interioare pentru un bloc cu regim de înălțime S+P+10E din Craiova. Lucrările includ zidărie, șape mecanizate, compartimentări și amenajări complete la standarde moderne.",
     tags: ["Rezidențial", "Craiova", "Finisaje", "Șape", "Zidărie"]
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: 2,
     title: "Finisaje interioare – Kaufland România (40+ magazine)",
     subtitle: "Placări inox • Iluminat • Camere frigorifice • Tavane casetate",
-    image: "https://images.unsplash.com/photo-1556228453-efd6c1ffcb71?w=1200&q=80",
+    image: "/poza/kaufland/dasdadas.jpeg",
     badge: "Retail",
     description: "Execuție de finisaje interioare complete în peste 40 de magazine Kaufland. Lucrări complexe: placări cu inox, sisteme de iluminat profesional, camere frigorifice, compartimentări din gips-carton și tavane casetate.",
     tags: ["Retail", "Finisaje", "Inox", "Iluminat", "Gips-carton"]
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     id: 3,
     title: "Casa Marius – Mercut, Filiași",
     subtitle: "Amenajare completă + foișor",
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&q=80",
+    image: "/poza/casa craiova/2323.jpeg",
     badge: "Rezidențial",
     description: "Proiect rezidențial complet în localitatea Mercut, Filiași. Amenajări interioare și exterioare, inclusiv construcția unui foișor elegant și finisaje de înaltă calitate pentru locuință.",
     tags: ["Rezidențial", "Filiași", "Amenajări", "Foișor"]
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     id: 7,
     title: "Logistică Kaufland Turda",
     subtitle: "Compartimentări • Gips-carton • Finisaje • Instalații electrice",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80",
+    image: "/poza/kaufland/dsdsa.jpeg",
     badge: "Logistică",
     description: "Lucrări ample de compartimentare, finisaje interioare, tavane și instalații electrice complete pentru centrul logistic Kaufland din Turda. Proiect de amploare cu cerințe tehnice ridicate.",
     tags: ["Logistică", "Gips-carton", "Instalații electrice", "Finisaje"]

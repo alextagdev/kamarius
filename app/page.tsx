@@ -254,12 +254,19 @@ export default function KamariusSite() {
                 onClick={() => openProject(project)}
                 className="portfolio-card group bg-[#252726] rounded-3xl overflow-hidden border border-white/10 cursor-pointer"
               >
-                <div className="relative h-52 overflow-hidden">
+                <div className="relative h-52 overflow-hidden bg-[#1a1b1a]">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                      (e.currentTarget.nextElementSibling as HTMLElement).style.display = "flex";
+                    }}
                   />
+                  <div className="absolute inset-0 hidden items-center justify-center bg-[#252726]">
+                    <img src="/logo-new.png" alt="KAMARIUS" className="w-20 h-20 object-contain opacity-30" />
+                  </div>
                   <div className="absolute top-4 right-4 project-tag bg-white/90 text-[#1F2120]">
                     {project.badge}
                   </div>
