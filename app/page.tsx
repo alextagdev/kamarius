@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import ProjectModal from "@/components/ProjectModal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import GallerySection from "@/components/GallerySection";
 import { projects, type Project } from "@/lib/projects";
 
 // Contact config (easy to edit)
@@ -272,6 +273,8 @@ export default function KamariusSite() {
           </div>
         </div>
       </section>
+
+      <GallerySection />
 
       {/* RECENZII */}
       <section id="recenzii" className="bg-white py-20">
