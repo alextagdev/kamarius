@@ -6,6 +6,23 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
 const PROJECTS = [
   {
+    id: "bazin",
+    name: "Bazin Olimpic",
+    images: [
+      "/poza/bazin olimpic/bazin1.jpeg",
+      "/poza/bazin olimpic/bazin2.jpeg",
+      "/poza/bazin olimpic/bazin3.jpeg",
+      "/poza/bazin olimpic/bazin4.jpeg",
+      "/poza/bazin olimpic/bazin5.jpeg",
+      "/poza/bazin olimpic/bazin6.jpeg",
+      "/poza/bazin olimpic/bazin7.jpeg",
+      "/poza/bazin olimpic/bazin8.jpeg",
+      "/poza/bazin olimpic/bazin9.jpeg",
+      "/poza/bazin olimpic/bazin10.jpeg",
+      "/poza/bazin olimpic/bazin11.jpeg",
+    ],
+  },
+  {
     id: "casa",
     name: "Casa Craiova",
     images: [
