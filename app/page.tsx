@@ -12,10 +12,10 @@ import GallerySection from "@/components/GallerySection";
 import { projects, type Project } from "@/lib/projects";
 
 // Contact config (easy to edit)
-const PHONE_RAW = "+40751234567";
-const PHONE_DISPLAY = "0751 234 567";
-const WHATSAPP = "40751234567";
-const EMAIL = "office@kamarius.ro";
+const PHONE_RAW = "+40742606599";
+const PHONE_DISPLAY = "0742 606 599";
+const WHATSAPP = "40742606599";
+const EMAIL = "cdesign2009@yahoo.com";
 const ADDRESS = "Craiova, județul Dolj, România";
 
 export default function KamariusSite() {

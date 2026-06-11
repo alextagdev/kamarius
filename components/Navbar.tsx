@@ -5,9 +5,9 @@ import { Phone } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-const PHONE_DISPLAY = "0751 234 567";
-const PHONE_RAW = "+40751234567";
-const WHATSAPP = "40751234567";
+const PHONE_DISPLAY = "0742 606 599";
+const PHONE_RAW = "+40742606599";
+const WHATSAPP = "40742606599";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
